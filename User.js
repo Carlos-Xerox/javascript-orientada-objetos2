@@ -49,11 +49,28 @@ export default class User {
         this.#nome = novoNome
     }
 
+    // exibirInfos() {
+    //     // const objUser = this.#montaObjUser()
+    //     return `${this.nome}, ${this.email}`
+    // }
+
     exibirInfos() {
-        // const objUser = this.#montaObjUser()
-        return `${this.nome}, ${this.email}`
+        if (this.role === "estudante") {
+            return `dados estudante: ${this.nome}, ${this.email}`
+        }
+        if (this.role === "admin") {
+            return `dados admin: ${this.nome}, ${this.role}`
+        }
+        if (this.role === "docente") {
+            return `dados docente: ${this.nome}, ${this.email}`
+
+        }
+    }
+    static exibirInfosGenericas(nome, email) {
+        return `${nome}, ${email}`
     }
 }
+
 
 const novoUser = new User('Juliana', 'j@j.com', '2024-01-01')
 // console.log(novoUser);
